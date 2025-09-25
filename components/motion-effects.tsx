@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import { initGsapAnimations } from "@/lib/gsapAnimations"
+import TealLightRays from "@/components/TealLightRays"
 
 export default function MotionEffects() {
   useEffect(() => {
