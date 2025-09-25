@@ -14,8 +14,7 @@ export default function MotionEffects() {
       <div id="scroll-progress" className="pointer-events-none fixed left-0 top-0 z-[60] h-1 w-full origin-left scale-x-0 bg-accent" />
       <div aria-hidden={true} className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="motion-gradient absolute inset-[-10%] opacity-40" />
-        {/* Subtle teal light rays, behind content */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <TealLightRays />
       </div>
     </>
   )
