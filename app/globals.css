@@ -172,3 +172,25 @@
   filter: blur(0px);
   transform: scale(1.2);
 }
+
+/* Teal light rays background (non-intrusive, uses brand --primary) */
+.light-rays { position: absolute; inset: -10%; pointer-events: none; mix-blend-mode: screen; }
+.light-rays-layer {
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  width: 220vw;
+  height: 220vh;
+  transform-origin: 50% 0%;
+  filter: blur(30px);
+  background:
+    conic-gradient(from 0deg at 50% 0%, color-mix(in oklch, var(--primary) 18%, transparent) 0 8deg, transparent 8deg 22deg,
+    color-mix(in oklch, var(--primary) 12%, transparent) 22deg 28deg, transparent 28deg 52deg,
+    color-mix(in oklch, var(--primary) 16%, transparent) 52deg 60deg, transparent 60deg 360deg);
+  animation: rays-pan 18s ease-in-out infinite alternate;
+}
+.ray-1 { --ray-rot: 8deg; transform: translateX(-50%) rotate(var(--ray-rot)); opacity: .7; }
+.ray-2 { --ray-rot: -22deg; transform: translateX(-50%) rotate(var(--ray-rot)); opacity: .55; animation-duration: 22s; }
+.ray-3 { --ray-rot: 36deg; transform: translateX(-50%) rotate(var(--ray-rot)); opacity: .45; animation-duration: 26s; }
+
+@keyframes rays-pan { from { transform: translateX(-50%) rotate(var(--ray-rot)); } to { transform: translateX(-50%) rotate(calc(var(--ray-rot) + 6deg)); } }
